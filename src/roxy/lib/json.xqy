@@ -23,7 +23,7 @@ import module namespace dateparser="http://marklogic.com/dateparser" at "date-pa
 declare default function namespace "http://www.w3.org/2005/xpath-functions";
 
 declare variable $newLineRegex := concat("[", codepoints-to-string((13, 10)), "]+");
-declare variable $analyzeString := try { xdmp:function(xs:QName("fn:analyze-string")) } catch ($e) {};
+declare variable $analyzeString := try { xdmp:function(xs:QName("fn:analyze-string")) } catch ($e) {''};
 declare variable $isSupported := try { exists(xdmp:apply($analyzeString, " ", " ")) } catch ($e) { false() };
 
 (:

@@ -26,7 +26,7 @@ declare option xdmp:mapping "false";
 
 declare private function local:clean-cpf()
 {
-  let $config := try { dom:configuration-get() } catch ($e) {}
+  let $config := try { dom:configuration-get() } catch ($e) {''}
   return
     if ($config) then
     (
@@ -203,7 +203,7 @@ declare private function local:configuration-get() as element(dom:configuration)
   {
     dom:configuration-get()
   }
-  catch($e) {}
+  catch($e) {''}
 };
 
 declare private function local:configuration-create(

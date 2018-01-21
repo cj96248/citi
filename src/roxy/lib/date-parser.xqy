@@ -20,7 +20,7 @@ module namespace dateparser="http://marklogic.com/dateparser";
 
 declare default function namespace "http://www.w3.org/2005/xpath-functions";
 
-declare variable $analyzeString := try { xdmp:function(xs:QName("fn:analyze-string")) } catch ($e) {};
+declare variable $analyzeString := try { xdmp:function(xs:QName("fn:analyze-string")) } catch ($e) {''};
 declare variable $regexSupported := try { exists(xdmp:apply($analyzeString, " ", " ")) } catch ($e) { false() };
 
 declare variable $dateparser:FORMATS as element(format)+ := (

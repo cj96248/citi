@@ -13,13 +13,12 @@ declare function log:logging() as item()*
 {
       let $level as xs:string := req:get("level", "info", "type=xs:string")
       let $filter as xs:string := req:get("filter", "", "type=xs:string")
-      let $page as xs:string := req:get("page", "", "type=xs:string")
+      let $filename as xs:string := req:get("filename", "", "type=xs:string")
       return
       (
-            ch:add-value("response", l:search($q, $page)),
+            ch:add-value("response", l:search($filename, $filter, $level)),
             ch:add-value("q", $q),
             ch:add-value("page", $page)
       ),
-      ch:use-view((), "xml"),
-      ch:use-layout((), "xml")
+      ch:use-view((), "xml")
 };

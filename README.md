@@ -12,3 +12,11 @@ I recommend to use application-level auth, so that we don't need to input userna
 Roxy is a utility for configuring and deploying MarkLogic applications. Using Roxy you can define your app servers, databases, forests, groups, tasks, etc in local configuration files. Roxy can then remotely create, update, and remove those settings from the command line.
 
 Please refer to [roxy](https://github.com/marklogic-community/roxy)
+
+### Http service
+
+You can use below http call to get the Marklogic log:
+
+http://localhost:8888/log/get-error-log
+
+http://localhost:8888/log/get-error-log?filename=ErrorLog.txt&filter=test&level=info
